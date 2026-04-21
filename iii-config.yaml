@@ -74,4 +74,4 @@ modules:
         - src/**/*.ts
       exec:
         - bun x motia dev
-        - bun dist/index-dev.js
+        - bun run dist/index-dev.js
