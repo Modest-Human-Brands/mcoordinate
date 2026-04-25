@@ -29,6 +29,8 @@
     "docker:start": "docker run --detach --name mcoordinate-dev --env-file .env.prod -p 3500:3000 mcoordinate:dev"
   },
   "dependencies": {
+    "@livekit/protocol": "^1.45.4",
+    "livekit-server-sdk": "^2.15.1",
     "motia": "^1.0.4-rc.1",
     "zod": "^4.3.6"
   },
