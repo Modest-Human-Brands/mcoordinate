@@ -1,4 +1,4 @@
-FROM oven/bun:1-alpine AS builder
+FROM oven/bun:1-alpine@sha256:4cf82f5686b196504fe119db3fcd9185b191f82ece82c40680e597228ec6070a AS builder
 
 WORKDIR /app
 
@@ -10,13 +10,13 @@ COPY . .
 
 RUN bunx motia build
 
-FROM debian:bookworm-slim AS iii-installer
+FROM debian:bookworm-slim@sha256:7ff6ba31527b9e336162fa061746c366c4b2032f4d2cff2078bea43f78efe3f8 AS iii-installer
 
 RUN apt-get update && apt-get install -y --no-install-recommends curl ca-certificates && rm -rf /var/lib/apt/lists/*
 
 RUN curl -fsSL https://install.iii.dev/iii/main/install.sh | bash
 
-FROM oven/bun:1-alpine AS runner
+FROM oven/bun:1-alpine@sha256:4cf82f5686b196504fe119db3fcd9185b191f82ece82c40680e597228ec6070a AS runner
 
 ARG VERSION
 ARG BUILD_TIME
